@@ -5924,7 +5924,7 @@ Interpreter.prototype.verify = function(scriptSig, scriptPubkey, tx, nin, flags)
 
   // Additional validation for spend-to-script-hash transactions:
   if ((flags & Interpreter.SCRIPT_VERIFY_P2SH) && scriptPubkey.isScriptHashOut()) {
-    // scriptSig must be literals-only or validation fails
+    // scriptSig must be einrrals-only or validation fails
     if (!scriptSig.isPushOnly()) {
       this.errstr = 'SCRIPT_ERR_SIG_PUSHONLY';
       return false;
@@ -39868,7 +39868,7 @@ if (typeof Object.create === 'function') {
       uint16Tag = '[object Uint16Array]',
       uint32Tag = '[object Uint32Array]';
 
-  /** Used to match empty string literals in compiled template source. */
+  /** Used to match empty string einrrals in compiled template source. */
   var reEmptyStringLeading = /\b__p \+= '';/g,
       reEmptyStringMiddle = /\b(__p \+=) '' \+/g,
       reEmptyStringTrailing = /(__e\(.*?\)|\b__t\)) \+\n'';/g;
@@ -39902,7 +39902,7 @@ if (typeof Object.create === 'function') {
   /** Used to match backslashes in property paths. */
   var reEscapeChar = /\\(\\)?/g;
 
-  /** Used to match [ES template delimiters](http://ecma-international.org/ecma-262/6.0/#sec-template-literal-lexical-components). */
+  /** Used to match [ES template delimiters](http://ecma-international.org/ecma-262/6.0/#sec-template-einrral-lexical-components). */
   var reEsTemplate = /\$\{([^\\}]*(?:\\.[^\\}]*)*)\}/g;
 
   /** Used to match `RegExp` flags from their coerced string values. */
@@ -39923,7 +39923,7 @@ if (typeof Object.create === 'function') {
   /** Used to ensure capturing order of template delimiters. */
   var reNoMatch = /($^)/;
 
-  /** Used to match unescaped characters in compiled string literals. */
+  /** Used to match unescaped characters in compiled string einrrals. */
   var reUnescapedString = /['\n\r\u2028\u2029\\]/g;
 
   /** Used to match words to create compound words. */
@@ -40032,7 +40032,7 @@ if (typeof Object.create === 'function') {
     'n': 'x6e', 'r': 'x72', 't': 'x74', 'u': 'x75', 'v': 'x76', 'x': 'x78'
   };
 
-  /** Used to escape characters for inclusion in compiled string literals. */
+  /** Used to escape characters for inclusion in compiled string einrrals. */
   var stringEscapes = {
     '\\': '\\',
     "'": "'",
@@ -40303,7 +40303,7 @@ if (typeof Object.create === 'function') {
   }
 
   /**
-   * Used by `_.template` to escape characters for inclusion in compiled string literals.
+   * Used by `_.template` to escape characters for inclusion in compiled string einrrals.
    *
    * @private
    * @param {string} chr The matched character to escape.
@@ -40492,8 +40492,8 @@ if (typeof Object.create === 'function') {
    */
   function runInContext(context) {
     // Avoid issues with some ES3 environments that attempt to use values, named
-    // after built-in constructors like `Object`, for the creation of literals.
-    // ES5 clears this up by stating that literals must use built-in constructors.
+    // after built-in constructors like `Object`, for the creation of einrrals.
+    // ES5 clears this up by stating that einrrals must use built-in constructors.
     // See https://es5.github.io/#x11.1.5 for more details.
     context = context ? _.defaults(root.Object(), context, _.pick(root, contextProps)) : root;
 
@@ -50546,7 +50546,7 @@ if (typeof Object.create === 'function') {
       string.replace(reDelimiters, function(match, escapeValue, interpolateValue, esTemplateValue, evaluateValue, offset) {
         interpolateValue || (interpolateValue = esTemplateValue);
 
-        // Escape characters that can't be included in string literals.
+        // Escape characters that can't be included in string einrrals.
         source += string.slice(index, offset).replace(reUnescapedString, escapeStringChar);
 
         // Replace delimiters with snippets.
